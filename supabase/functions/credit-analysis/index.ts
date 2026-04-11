@@ -97,9 +97,9 @@ serve(async (req) => {
     // Valida resposta
     const score =
       typeof data === 'object' &&
-        data !== null &&
-        'score' in data &&
-        typeof data.score === 'number'
+      data !== null &&
+      'score' in data &&
+      typeof data.score === 'number'
         ? data.score
         : null;
 
@@ -110,9 +110,9 @@ serve(async (req) => {
 
     const status =
       typeof data === 'object' &&
-        data !== null &&
-        'status' in data &&
-        typeof data.status === 'string'
+      data !== null &&
+      'status' in data &&
+      typeof data.status === 'string'
         ? data.status
         : 'Done';
 
