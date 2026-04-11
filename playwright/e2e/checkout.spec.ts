@@ -137,7 +137,7 @@ test.describe('Checkout', () => {
         totalPrice: 'R$ 40.000,00'
       }
 
-      await deleteOrderByEmail(customer.email)
+      await deleteOrderByEmail(customer.email);
 
       // Arrange
       await page.goto('/')
