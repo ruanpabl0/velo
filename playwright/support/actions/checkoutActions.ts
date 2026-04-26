@@ -53,6 +53,10 @@ export function createCheckoutActions(page: Page) {
       await page.getByRole('button', { name: new RegExp(method, 'i') }).click()
     },
 
+    async fillDownPayment(value: string) {
+      await page.getByTestId('input-entry-value').fill(value)
+    },
+
     async acceptTerms() {
       await terms.check()
     },
@@ -60,5 +64,11 @@ export function createCheckoutActions(page: Page) {
     async submit() {
       await page.getByRole('button', { name: 'Confirmar Pedido' }).click()
     },
+
+    async expectResult(status: string) {
+      await expect(page).toHaveURL(/\/success/)
+      await expect(page.getByRole('heading', { name: status })).toBeVisible()
+    }
+
   }
 }
