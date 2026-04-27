@@ -350,10 +350,10 @@ test.describe('Checkout', () => {
         downPayment: '30000'
       }
 
-      await deleteOrderByEmail(customer.email);
+      await deleteOrderByEmail(customer.email)
 
 
-      await app.mock.creditAnalysis(300);
+      await app.mock.creditAnalysis(300)
 
       // Arrange
       await app.configurator.expectPrice(customer.totalPrice)
