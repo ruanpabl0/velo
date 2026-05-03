@@ -78,13 +78,7 @@ jobs:
           --token=$VERCEL_TOKEN \
           --scope=$VERCEL_SCOPE
 
-      # 6. DEBUG — exibe as variáveis baixadas pela Vercel (remover após validação)
-      - name: Debug Vercel env vars
-        run: |
-          echo "=== .vercel/.env.preview.local ==="
-          cat .vercel/.env.preview.local || echo "Arquivo não encontrado"
-
-      # 7. Build para o Vercel
+      # 6. Build para o Vercel
       - name: Build Vercel
         run: yarn vercel build --token=$VERCEL_TOKEN
 
@@ -131,6 +125,7 @@ jobs:
         run: yarn playwright test
         env:
           BASE_URL: ${{ needs.build-and-deploy.outputs.deployment-url }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL_PREVIEW }}
 
       # 7. Relatório de Testes Automatizados
       - name: Upload Playwright report
