@@ -173,7 +173,13 @@ jobs:
           --token=$VERCEL_TOKEN \
           --scope=$VERCEL_SCOPE
 
-      # 6. Gera um novo bundle com as variáveis de produção embutidas
+      # 6. DEBUG — exibe as variáveis de produção baixadas (remover após validação)
+      - name: Debug Vercel env vars (production)
+        run: |
+          echo "=== .vercel/.env.production.local ==="
+          cat .vercel/.env.production.local || echo "Arquivo não encontrado"
+
+      # 7. Gera um novo bundle com as variáveis de produção embutidas
       - name: Build Vercel (production)
         run: yarn vercel build --prod --token=$VERCEL_TOKEN
 
