@@ -77,8 +77,14 @@ jobs:
           --environment=preview \
           --token=$VERCEL_TOKEN \
           --scope=$VERCEL_SCOPE
-      
-      # 6. Build para o Vercel
+
+      # 6. DEBUG — exibe as variáveis baixadas pela Vercel (remover após validação)
+      - name: Debug Vercel env vars
+        run: |
+          echo "=== .vercel/.env.preview.local ==="
+          cat .vercel/.env.preview.local || echo "Arquivo não encontrado"
+
+      # 7. Build para o Vercel
       - name: Build Vercel
         run: yarn vercel build --token=$VERCEL_TOKEN
 
