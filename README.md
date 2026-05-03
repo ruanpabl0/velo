@@ -57,6 +57,7 @@ Crie o arquivo `.env` na raiz do projeto:
 VITE_SUPABASE_PROJECT_ID="seu_project_id"
 VITE_SUPABASE_PUBLISHABLE_KEY="sua_chave_anon_publica"
 VITE_SUPABASE_URL="https://seu_project_id.supabase.co"
+DATABASE_URL=postgresql://postgres.[PROJECT_ID]:[PASSWORD]@aws-1-us-east-2.pooler.supabase.com:5432/postgres
 ```
 
 > Encontre essas informações em: **Project Settings → API**
